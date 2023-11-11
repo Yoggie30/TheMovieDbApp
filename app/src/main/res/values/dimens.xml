@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--margin and padding-->
+    <dimen name="margin_1">@dimen/_1sdp</dimen>
+    <dimen name="margin_minimum">@dimen/_2sdp</dimen>
+    <dimen name="margin_extra_small">@dimen/_4sdp</dimen>
+    <dimen name="margin_small">@dimen/_8sdp</dimen>
+    <dimen name="margin_semi_medium">@dimen/_12sdp</dimen>
+    <dimen name="margin_medium">@dimen/_16sdp</dimen>
+    <dimen name="margin_semi_big">@dimen/_24sdp</dimen>
+    <dimen name="margin_big">@dimen/_32sdp</dimen>
+    <dimen name="margin_extra_big">@dimen/_48sdp</dimen>
+    <dimen name="margin_huge">@dimen/_64sdp</dimen>
+    <dimen name="splash_icon_size">@dimen/_180sdp</dimen>
+
+
+    <dimen name="small_progress_bar_size">@dimen/_40sdp</dimen>
+
+    <dimen name="thumbnail_size">@dimen/_160sdp</dimen>
+
+    <dimen name="grid_column_width">@dimen/_160sdp</dimen>
+    <dimen name="collapsing_toolbar_max_width">@dimen/_460sdp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+</resources>

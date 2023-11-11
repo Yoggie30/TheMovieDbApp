@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TheMovieDbApp</string>
+    <string name="label_ok">OK</string>
+    <string name="label_no_data_found">No Data Found</string>
+    <string name="no_release_date">No release date</string>
+    <string name="no_ratings">No ratings</string>
+    <string name="no_data_na">N/A</string>
+    <string name="visit_website">Visit website</string>
+    <string name="runtime_pattern_single">%s hour &amp; %s minutes</string>
+    <string name="runtime_pattern_multiple">%s hours &amp; %s minutes</string>
+    <string name="votes_pattern">%s votes</string>
+    <string name="revenue_pattern" translatable="false">%s mill.</string>
+    <string name="visit_website_url_pattern" translatable="false"><![CDATA[<a href="%s">%s</a>]]></string>
+</resources>
