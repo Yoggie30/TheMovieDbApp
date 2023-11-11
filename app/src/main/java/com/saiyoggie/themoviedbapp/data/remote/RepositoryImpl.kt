@@ -47,7 +47,7 @@ class RepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) {
             val responseModel = MutableLiveData<MovieDetailsModel>()
             if (networkHelper.isNetworkConnected()) {
-                val response = apiHelper.getAPIService().getMovieDetails(movieId,Constants.API_KEY)
+                val response = apiHelper.getAPIService().getMovieDetails(movieId, Constants.API_KEY)
                 if (response.isSuccessful) {
                     val result = response.body()
                     result?.let { data ->
@@ -62,25 +62,6 @@ class RepositoryImpl @Inject constructor(
             }
             responseModel
         }
-    }
-
-
-    suspend fun fetchNextPopularMovies() {
-        currentPage++
-        fetchPopularMovies()
-    }
-
-    suspend fun refreshPopularMovies() {
-        currentPage = 1
-        fetchPopularMovies()
-    }
-
-    fun isFirstPage(): Boolean {
-        return currentPage == 1
-    }
-
-    fun isLastPage(): Boolean {
-        return currentPage == lastPage
     }
 
 }
