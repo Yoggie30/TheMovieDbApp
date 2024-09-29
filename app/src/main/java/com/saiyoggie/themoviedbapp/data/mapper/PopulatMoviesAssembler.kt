@@ -13,19 +13,19 @@ fun assemblePopularMoviesResponse(
         popularMoviesList.add(
             PopularMoviesModel(
                 adult = it.adult,
-                backdrop_path = it.backdrop_path,
-                genre_ids = it.genre_ids,
+                backdropPath = it.backdrop_path,
+                genreIds = it.genre_ids,
                 id = it.id,
-                original_language = it.original_language,
-                original_title = it.original_title,
+                originalLanguage = it.original_language,
+                originalTitle = it.original_title,
                 overview = it.overview,
                 popularity = it.popularity,
-                poster_path = it.poster_path,
-                release_date = it.release_date,
+                posterPath = it.poster_path,
+                releaseDate = it.release_date,
                 title = it.title,
                 video = it.video,
-                vote_average = it.vote_average,
-                vote_count = it.vote_count
+                voteAverage = it.vote_average,
+                voteCount = it.vote_count
             )
         )
     }
@@ -35,10 +35,10 @@ fun assemblePopularMoviesResponse(
 fun assembleMovieDetails(response: MovieDetailsResponse): MovieDetailsModel {
     return MovieDetailsModel(
         adult = response.adult,
-        backdrop_path = response.backdrop_path,
+        backdropPath = response.backdrop_path,
         // belongs_to_collection = response.belongs_to_collection,
         budget = response.budget,
-        genres = response.genres ?: emptyList(),
+        genres = response.genres?: emptyList(),
         homepage = response.homepage,
         id = response.id,
         imdbId = response.imdb_id,

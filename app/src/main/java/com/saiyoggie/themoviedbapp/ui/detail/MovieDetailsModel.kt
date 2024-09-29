@@ -7,7 +7,7 @@ import com.saiyoggie.themoviedbapp.data.model.details.SpokenLanguage
 
 data class MovieDetailsModel(
     val adult: Boolean?,
-    val backdrop_path: String?,
+    val backdropPath: String?,
     //val belongs_to_collection: String?,
     val budget: Int?,
     val genres: List<Genre>,

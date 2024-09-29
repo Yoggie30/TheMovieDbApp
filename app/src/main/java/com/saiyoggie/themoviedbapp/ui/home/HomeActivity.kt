@@ -3,7 +3,6 @@ package com.saiyoggie.themoviedbapp.ui.home
 import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.saiyoggie.themoviedbapp.ui.base.BaseActivity
@@ -34,9 +33,13 @@ class HomeActivity : BaseActivity() {
     }
     private fun setUpRecyclerView() {
         movieAdapter = MovieListAdapter()
+        binding.rvMoviesList.adapter= movieAdapter
         binding.rvMoviesList.apply {
-            layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
-            adapter = movieAdapter
+            set3DItem(true)
+            setAlpha(true)
+            setInfinite(true)
+          /*  layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+            adapter = movieAdapter*/
         }
         movieAdapter.itemSelectAction { item ->
             navigateToMovieDetails(item.id)
@@ -53,7 +56,7 @@ class HomeActivity : BaseActivity() {
 
     private fun fetchPopularMovies(){
      viewModel.fetchPopularMovies()
-         .observe(this, Observer { resources ->
+         .observe(this) { resources ->
              when (resources.status) {
                  Resource.Status.LOADING -> {
                      showProgress()
@@ -61,12 +64,14 @@ class HomeActivity : BaseActivity() {
                          Timber.e("fetchPopularMovies LOADING-->$it")
                      }
                  }
+
                  Resource.Status.SUCCESS -> {
                      hideProgress()
                      resources.data?.value?.let {
-                       movieAdapter.setItems(it)
+                         movieAdapter.setItems(it)
                      }
                  }
+
                  Resource.Status.ERROR -> {
                      hideProgress()
                      resources.message?.let { it1 ->
@@ -75,7 +80,7 @@ class HomeActivity : BaseActivity() {
                      }
                  }
              }
-         })
+         }
     }
 
 

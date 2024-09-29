@@ -97,6 +97,9 @@ dependencies {
         exclude group: 'glide-parent'
     }
 
+    //Carousel Recyclerview
+    implementation 'com.github.sparrow007:carouselrecyclerview:1.2.6'
+
     //Timber
     implementation "com.jakewharton.timber:timber:$timber_version"
 }

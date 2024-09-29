@@ -1,12 +1,9 @@
 package com.saiyoggie.themoviedbapp.ui.detail
 
 
-import android.os.Build
 import android.view.View
 import androidx.activity.viewModels
-import androidx.annotation.RequiresApi
 import androidx.core.text.HtmlCompat
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.saiyoggie.themoviedbapp.utils.TimeUtils
 import com.saiyoggie.themoviedbapp.R
@@ -42,7 +39,7 @@ class MovieDetailActivity : BaseActivity() {
 
     private fun fetchMovieDetails(movieId: Int) {
         viewModel.getMovieDetails(movieId)
-            .observe(this, Observer { resources ->
+            .observe(this) { resources ->
                 when (resources.status) {
                     Resource.Status.LOADING -> {
                         showProgress()
@@ -50,6 +47,7 @@ class MovieDetailActivity : BaseActivity() {
                             Timber.e("fetchMovieDetails LOADING-->$it")
                         }
                     }
+
                     Resource.Status.SUCCESS -> {
                         hideProgress()
                         resources.data?.value?.let {
@@ -57,6 +55,7 @@ class MovieDetailActivity : BaseActivity() {
                             setUpData(it)
                         }
                     }
+
                     Resource.Status.ERROR -> {
                         hideProgress()
                         resources.message?.let { it1 ->
@@ -65,7 +64,7 @@ class MovieDetailActivity : BaseActivity() {
                         }
                     }
                 }
-            })
+            }
     }
 
     private fun setUpData(data: MovieDetailsModel) {
@@ -122,9 +121,7 @@ class MovieDetailActivity : BaseActivity() {
                 )
             } ?: getString(R.string.no_data_na)
 
-            tvOverview.text = data.overview?.let {
-                it
-            } ?: "NA"
+            tvOverview.text = data.overview ?: "NA"
         }
     }
 

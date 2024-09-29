@@ -12,7 +12,7 @@ import timber.log.Timber
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    var isProgressVisible = false
+    private var isProgressVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.e("onCreate")

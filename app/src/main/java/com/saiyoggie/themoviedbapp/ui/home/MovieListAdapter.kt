@@ -1,5 +1,6 @@
 package com.saiyoggie.themoviedbapp.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>(
     private var moviesList = mutableListOf<PopularMoviesModel>()
     private var listener: ((movie: PopularMoviesModel) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(items: MutableList<PopularMoviesModel>) {
         this.moviesList.clear()
         this.moviesList = items
@@ -44,7 +46,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.MovieViewHolder>(
     ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movieData: PopularMoviesModel) {
-            val posterPath = "$BASE_URL_IMAGE${movieData.poster_path}"
+            val posterPath = "$BASE_URL_IMAGE${movieData.posterPath}"
             binding.apply {
                 Glide.with(appContext)
                     .load(posterPath)
